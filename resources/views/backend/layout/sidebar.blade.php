@@ -27,7 +27,7 @@ $adjustment_active = $role_has_permissions_list->where('name', 'adjustment')->fi
                             </li>
                             <?php
                         $add_permission_active = $role_has_permissions_list->where('name', 'products-add')->first();
-                                                                                                ?>
+                                                                                                                ?>
                             @if($add_permission_active)
                                 <li id="product-create-menu"><a href="{{route('products.create')}}">{{__('file.add_product')}}</a>
                                 </li>
@@ -53,16 +53,16 @@ $adjustment_active = $role_has_permissions_list->where('name', 'adjustment')->fi
 //disable unused menu by checking if they're set to == "Show"
 $index_permission_active = $role_has_permissions_list->where('name', 'purchases-index')->first();
             ?>
-    @if($index_permission_active == "Show")
+    @if($index_permission_active)
         <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i
                     class="dripicons-card"></i><span>{{trans('file.Purchase')}}</span></a>
             <ul id="purchase" class="collapse list-unstyled>
-                            <li id=" purchase-list-menu"><a
+                                <li id=" purchase-list-menu"><a
                     href="{{route('purchases.index')}}">{{trans('file.Purchase List')}}</a>li
                 li/li>
                 <?php
         $add_permission_active = $role_has_permissions_list->where('name', 'purchases-add')->first();
-                                    ?>
+                                        ?>
                 @if($add_permission_active)
                     <li id="purchase-create-menu"><a href="{{route('purchases.create')}}">{{trans('file.Add Purchase')}}</a>
                     </li>
@@ -149,7 +149,7 @@ $income_index_permission_active = $role_has_permissions_list->where('name', 'inc
                 <li id="exp-list-menu"><a href="{{route('expenses.index')}}">{{trans('file.Expense List')}}</a></li>
                 <?php
         $add_permission_active = $role_has_permissions_list->where('name', 'expenses-add')->first();
-                                    ?>
+                                        ?>
                 @if($add_permission_active)
                     <li><a id="add-expense" href=""> {{trans('file.Add Expense')}}</a></li>
                 @endif
@@ -167,7 +167,7 @@ $income_index_permission_active = $role_has_permissions_list->where('name', 'inc
                 </li>
                 <?php
         $income_add_permission_active = $role_has_permissions_list->where('name', 'incomes-add')->first();
-                                    ?>
+                                        ?>
                 @if($income_add_permission_active)
                     <li><a id="add-income" href=""> {{trans('file.Add Income')}}</a></li>
                 @endif
@@ -185,7 +185,7 @@ $index_permission_active = $role_has_permissions_list->where('name', 'quotes-ind
                 </li>
                 <?php
         $add_permission_active = $role_has_permissions_list->where('name', 'quotes-add')->first();
-                                    ?>
+                                        ?>
                 @if($add_permission_active)
                     <li id="quotation-create-menu"><a href="{{route('quotations.create')}}">{{trans('file.Add Quotation')}}</a>
                     </li>
@@ -203,7 +203,7 @@ $index_permission_active = $role_has_permissions_list->where('name', 'transfers-
                 <li id="transfer-list-menu"><a href="{{route('transfers.index')}}">{{trans('file.Transfer List')}}</a></li>
                 <?php
         $add_permission_active = $role_has_permissions_list->where('name', 'transfers-add')->first();
-                                    ?>
+                                        ?>
                 @if($add_permission_active)
                     <li id="transfer-create-menu"><a href="{{route('transfers.create')}}">{{trans('file.Add Transfer')}}</a>
                     </li>
@@ -335,7 +335,7 @@ $supplier_index_permission_active = $role_has_permissions_list->where('name', 's
                             <li id="user-list-menu"><a href="{{route('user.index')}}">{{trans('file.User List')}}</a></li>
                             <?php
                         $user_add_permission_active = $role_has_permissions_list->where('name', 'users-add')->first();
-                                                                                                ?>
+                                                                                                                ?>
                             @if($user_add_permission_active)
                                 <li id="user-create-menu"><a href="{{route('user.create')}}">{{trans('file.Add User')}}</a></li>
                             @endif
@@ -345,7 +345,7 @@ $supplier_index_permission_active = $role_has_permissions_list->where('name', 's
                             <li id="customer-list-menu"><a href="{{route('customer.index')}}">{{trans('file.Customer List')}}</a></li>
                             <?php
                         $customer_add_permission_active = $role_has_permissions_list->where('name', 'customers-add')->first();
-                                                                                                ?>
+                                                                                                                ?>
                             @if($customer_add_permission_active)
                                 <li id="customer-create-menu"><a href="{{route('customer.create')}}">{{trans('file.Add Customer')}}</a></li>
                             @endif
@@ -355,7 +355,7 @@ $supplier_index_permission_active = $role_has_permissions_list->where('name', 's
                             <li id="biller-list-menu"><a href="{{route('biller.index')}}">{{trans('file.Biller List')}}</a></li>
                             <?php
                         $biller_add_permission_active = $role_has_permissions_list->where('name', 'billers-add')->first();
-                                                                                                ?>
+                                                                                                                ?>
                             @if($biller_add_permission_active)
                                 <li id="biller-create-menu"><a href="{{route('biller.create')}}">{{trans('file.Add Biller')}}</a>
                                 </li>
@@ -366,7 +366,7 @@ $supplier_index_permission_active = $role_has_permissions_list->where('name', 's
                             <li id="supplier-list-menu"><a href="{{route('supplier.index')}}">{{trans('file.Supplier List')}}</a></li>
                             <?php
                         $supplier_add_permission_active = $role_has_permissions_list->where('name', 'suppliers-add')->first();
-                                                                                                ?>
+                                                                                                                ?>
                             @if($supplier_add_permission_active)
                                 <li id="supplier-create-menu"><a href="{{route('supplier.create')}}">{{trans('file.Add Supplier')}}</a></li>
                             @endif
