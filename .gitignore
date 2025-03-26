@@ -2,6 +2,10 @@
 /public/hot
 /public/images/category
 /public/product
+/public/images/product
+/public/images/supplier
+/public/images/brand
+/public/images/employee
 /storage/*.key
 /vendor
 .env
