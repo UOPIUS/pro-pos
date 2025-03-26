@@ -8,7 +8,7 @@
 
 <div class="container">
     <!-- Alert Section for version upgrade-->
-    <div id="alertSection" class="{{ $alertVersionUpgradeEnable===true ? null : 'd-none' }} alert alert-primary alert-dismissible fade show" role="alert">
+    <div id="alertSection" class="{{ $alertVersionUpgradeEnable===true ? null : 'd-none' }} alert alert-primary alert-dismissible fade show d-none" role="alert">
         <p id="announce" class="{{ $alertVersionUpgradeEnable===true ? null : 'd-none' }}"><strong>Announce !!!</strong> A new version {{config('auto_update.VERSION')}} <span id="newVersionNo"></span> has been released. Please <i><b><a href="{{route('new-release')}}">Click here</a></b></i> to check upgrade details.</p>
         <button type="button" id="closeButtonUpgrade" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

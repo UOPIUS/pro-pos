@@ -739,7 +739,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column-5">
+                    <div class="column-5 d-none">
                         <button style="background-color: #e28d02" type="button" class="btn btn-sm btn-custom" id="draft-btn"><i class="dripicons-flag"></i> {{trans('file.Draft')}}</button>
                     </div>
                     <div class="column-5">

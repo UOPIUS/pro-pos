@@ -56,6 +56,7 @@ class Common
         }
         $currency = Cache::remember('currency', 60*60*24*365, function () {
             $settingData = DB::table('general_settings')->select('currency')->latest()->first();
+
             return \App\Models\Currency::where("code",$settingData->currency)->first();
         });
 
