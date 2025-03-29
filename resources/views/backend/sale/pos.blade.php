@@ -698,9 +698,10 @@
                                 <i class="fa fa-cube"></i> Pay <span id="grand-total-m"></span>
                             </button>
                             <div class="">
+                                <!-- Card is now replaced with Transfer -->
                                 @if(in_array("card",$options))
                                 <div class="column-5">
-                                    <button style="background: #0984e3" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> {{trans('file.Card')}}</button>
+                                    <button style="background: #0984e3" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> {{ 'Transfer' }}</button>
                                 </div>
                                 @endif
                                 @if(in_array("cash",$options))
@@ -711,14 +712,10 @@
                                 <div class="column-5">
                                     <button style="background: #010429" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="multiple-payment-btn"><i class="fa fa-money"></i> {{trans('file.Multiple Payment')}}</button>
                                 </div>
-                                {{-- @if(in_array("paypal",$options) && $lims_pos_setting_data && (strlen($lims_pos_setting_data->paypal_live_api_username)>0) && (strlen($lims_pos_setting_data->paypal_live_api_password)>0) && (strlen($lims_pos_setting_data->paypal_live_api_secret)>0))
-                                <div class="column-5">
-                                    <button style="background-color: #213170" type="button" class="btn btn-sm btn-block btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="paypal-btn"><i class="fa fa-paypal"></i> {{trans('file.PayPal')}}</button>
-                                </div>
-                                @endif --}}
+                               <!-- Cheque is replaced with POS -->
                                 @if(in_array("cheque",$options))
                                 <div class="column-5">
-                                    <button style="background-color: #fd7272" type="button" class="btn btn-sm btn-block btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{trans('file.Cheque')}}</button>
+                                    <button style="background-color: #fd7272" type="button" class="btn btn-sm btn-block btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{ 'POS'}}</button>
                                 </div>
                                 @endif
                                 @if(in_array("gift_card",$options))
@@ -776,10 +773,10 @@
                                                     <option value="2">Gift Card</option>
                                                     @endif
                                                     @if(in_array("card",$options))
-                                                    <option value="3">Credit Card</option>
+                                                    <option value="3">Transfer</option>
                                                     @endif
                                                     @if(in_array("cheque",$options))
-                                                    <option value="4">Cheque</option>
+                                                    <option value="4">POS</option>
                                                     @endif
                                                     @if(in_array("paypal",$options) && (strlen(env('PAYPAL_LIVE_API_USERNAME'))>0) && (strlen(env('PAYPAL_LIVE_API_PASSWORD'))>0) && (strlen(env('PAYPAL_LIVE_API_SECRET'))>0))
                                                     <option value="5">Paypal</option>
@@ -1747,10 +1744,10 @@
                                     <option value="2">Gift Card</option>
                                     @endif
                                     @if(in_array("card",$options))
-                                    <option value="3">Credit Card</option>
+                                    <option value="3">Transer</option>
                                     @endif
                                     @if(in_array("cheque",$options))
-                                    <option value="4">Cheque</option>
+                                    <option value="4">POS</option>
                                     @endif
                                     @if(in_array("paypal",$options) && (strlen(env('PAYPAL_LIVE_API_USERNAME'))>0) && (strlen(env('PAYPAL_LIVE_API_PASSWORD'))>0) && (strlen(env('PAYPAL_LIVE_API_SECRET'))>0))
                                     <option value="5">Paypal</option>
@@ -2637,14 +2634,14 @@ function getProduct(warehouse_id){
             appendElement = `<div class="form-group col-md-12 credit-card remove-element">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <label>Card Number</label>
+                                        <label>Sender</label>
                                         <input class="form-control" name="card_number" class="card_name">
                                     </div>
                                     <div class="col-md-5">
-                                        <label>Card Holder Name</label>
+                                        <label>Bank</label>
                                         <input class="form-control" name="card_holder_name">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 d-none">
                                         <label>Card Type</label>
                                         <select class="form-control" name="card_type">
                                             <option>Visa</option>
@@ -2657,7 +2654,7 @@ function getProduct(warehouse_id){
         else if (className == 'cheque') {
             $('select[name="paid_by_id_select[]"]').val(4);
             appendElement = `<div class="form-group col-md-12 cheque remove-element">
-                            <label>{{trans('file.Cheque Number')}} *</label>
+                            <label>{{ 'POS Name' }} *</label>
                             <input type="text" name="cheque_no" class="form-control" value="" required>
                         </div>`;
 
@@ -2766,14 +2763,14 @@ function getProduct(warehouse_id){
             appendElement = `<div class="form-group col-md-10 credit-card remove-element">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <label>Card Number</label>
+                                        <label>Sender</label>
                                         <input class="form-control" name="card_number" class="card_name">
                                     </div>
                                     <div class="col-md-5">
-                                        <label>Card Holder Name</label>
+                                        <label>Bank</label>
                                         <input class="form-control" name="card_holder_name">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 d-none">
                                         <label>Card Type</label>
                                         <select class="form-control" name="card_type">
                                             <option>Visa</option>

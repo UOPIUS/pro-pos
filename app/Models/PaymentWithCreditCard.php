@@ -10,6 +10,7 @@ class PaymentWithCreditCard extends Model
 
     protected $fillable =[
 
-        "payment_id", "customer_id", "customer_stripe_id", "charge_id", "data"
+        "payment_id", "customer_id", "customer_stripe_id", "charge_id", "data","card_holder_name",
+        "card_number"
     ];
 }

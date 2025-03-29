@@ -6,6 +6,7 @@
 /public/images/supplier
 /public/images/brand
 /public/images/employee
+/public/documents
 /storage/*.key
 /vendor
 .env
