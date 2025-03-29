@@ -709,15 +709,15 @@
                                     <button style="background: #00cec9" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cash-btn"><i class="fa fa-money"></i> {{trans('file.Cash')}}</button>
                                 </div>
                                 @endif
-                                <div class="column-5">
-                                    <button style="background: #010429" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="multiple-payment-btn"><i class="fa fa-money"></i> {{trans('file.Multiple Payment')}}</button>
-                                </div>
-                               <!-- Cheque is replaced with POS -->
+                                <!-- Cheque is replaced with POS -->
                                 @if(in_array("cheque",$options))
                                 <div class="column-5">
                                     <button style="background-color: #fd7272" type="button" class="btn btn-sm btn-block btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{ 'POS'}}</button>
                                 </div>
                                 @endif
+                                <div class="column-5">
+                                    <button style="background: #010429" type="button" class="btn btn-sm btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="multiple-payment-btn"><i class="fa fa-money"></i> {{trans('file.Multiple Payment')}}</button>
+                                </div>
                                 @if(in_array("gift_card",$options))
                                 <div class="column-5">
                                     <button style="background-color: #5f27cd" type="button" class="btn btn-sm btn-block btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="gift-card-btn"><i class="fa fa-credit-card-alt"></i> {{trans('file.Gift Card')}}</button>
@@ -2629,16 +2629,16 @@ function getProduct(warehouse_id){
             $('.paying_amount').parent().addClass('col-md-12').removeClass('col-md-3 d-none');
             $('.paying_amount').addClass('cash_paying_amount');
         }
-        else if (className == 'credit-card') {
+        else if (className == 'credit-card') { // Now Transfer
             $('select[name="paid_by_id_select[]"]').val(3);
             appendElement = `<div class="form-group col-md-12 credit-card remove-element">
                                 <div class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <label>Sender</label>
                                         <input class="form-control" name="card_number" class="card_name">
                                     </div>
-                                    <div class="col-md-5">
-                                        <label>Bank</label>
+                                    <div class="col-md-6">
+                                        <label>Sender Bank</label>
                                         <input class="form-control" name="card_holder_name">
                                     </div>
                                     <div class="col-md-2 d-none">
@@ -2651,7 +2651,7 @@ function getProduct(warehouse_id){
                                 </div>
                             </div>`;
         }
-        else if (className == 'cheque') {
+        else if (className == 'cheque') { //Now Card
             $('select[name="paid_by_id_select[]"]').val(4);
             appendElement = `<div class="form-group col-md-12 cheque remove-element">
                             <label>{{ 'POS Name' }} *</label>
